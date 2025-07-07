@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanMaz | Order</title>
+    <link rel="icon" type="image/x-icon" href="../business_12712780.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Cedarville+Cursive&family=Playwrite+HR+Lijeva:wght@100;200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Public/css/order.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">UrbanMaz Cafe</a>
+        <nav class="nav" id="nav">
+            <a href="/index.html" class="nav-link">Home</a>
+            <a href="/order.html" class="nav-link ">Order</a>
+            <a href="/about.html" class="nav-link ">About</a>
+            <button class="btn-contact"><a href="/contact.html" style="color: white; text-decoration: none;">Contact Us</a></button>
+        </nav>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Order</h1>
+            <h2>Delicious Food</h2>
+        </div>
+    </section>
+
+    <!-- Cart Summary (Desktop) -->
+    <div class="cart-summary" id="cart-summary">
+        <h3>Your Order</h3>
+        <div id="cart-items">
+            <p style="text-align: center; opacity: 0.7;">No items in cart</p>
+        </div>
+        <div class="cart-total" id="cart-total">
+            Total: $0.00
+        </div>
+        <button class="btn-checkout" onclick="scrollToOrderForm()">Checkout</button>
+    </div>
+
+    <!-- Menu Categories -->
+    <section class="menu-categories">
+        <div class="category-nav">
+            <button class="category-btn active" onclick="filterCategory('all')">All Items</button>
+            <button class="category-btn" onclick="filterCategory('appetizers')">Appetizers</button>
+            <button class="category-btn" onclick="filterCategory('soups')">Soups</button>
+            <button class="category-btn" onclick="filterCategory('entrees')">Entrees</button>
+            <button class="category-btn" onclick="filterCategory('desserts')">Desserts</button>
+            <button class="category-btn" onclick="filterCategory('beverages')">Beverages</button>
+        </div>
+
+        <!-- Appetizers -->
+        <div class="menu-section" data-category="appetizers">
+            <h2>Appetizers</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-image" style="background-image: url('../../assets/Images/special.webp');"></div>
+                    <div class="menu-item-content">
+                        <h3>Fresh Garden Salad</h3>
+                        <p>Crisp mixed greens with seasonal vegetables and house dressing</p>
+                        <div class="menu-item-footer">
+                            <span class="price">$12.99</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-image" style="background-image: url('../../assets/Images/special2.webp');"></div>
+                    <div class="menu-item-content">
+                        <h3>Bruschetta Trio</h3>
+                        <p>Three varieties of toasted bread with fresh toppings</p>
+                        <div class="menu-item-footer">
+                            <span class="price">$15.99</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Soups -->
+        <div class="menu-section" data-category="soups">
+            <h2>Soups</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-image" style="background-image: url('../../assets/Images/soup-menu.webp');"></div>
+                    <div class="menu-item-content">
+                        <h3>Tomato Basil Soup</h3>
+                        <p>Creamy tomato soup with fresh basil and croutons</p>
+                        <div class="menu-item-footer">
+                            <span class="price">$8.99</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-image" style="background-image: url('../../assets/Images/soup-menu.webp');"></div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Noodle Soup</h3>
+                        <p>Classic homemade chicken soup with vegetables and noodles</p>
+                        <div class="menu-item-footer">
+                            <span class="price">$10.99</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Entrees -->
+        <div class="menu-section" data-category="entrees">
+            <h2>Entrees</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-image" style="background-image: url('../../assets/Images/penna alla vodka.webp');"></div>
+                    <div class="menu-item-content">
+                        <h3>Penne alla Vodka</h3>
+                        <p>Creamy vodka sauce with penne pasta and fresh herbs</p>
+                        <div class="menu-item-footer">
+                            <span class="price">$18.99</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-image" style="background-image: url('../../assets/Images/top-view-delicious-kebab-with-ketchup-french-fries.jpg');"></div>
+                    <div class="menu-item-content">
+                        <h3>Grilled Chicken Kebab</h3>
+                        <p>Marinated chicken skewers with vegetables and rice</p>
+                        <div class="menu-item-footer">
+                            <span class="price">$22.99</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desserts -->
+        <div class="menu-section" data-category="desserts">
+            <h2>Desserts</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-image" style="background-image: url('../../assets/Images/palooda.webp');"></div>
+                    <div class="menu-item-content">
+                        <h3>Falooda</h3>
+                        <p>Traditional layered dessert with vermicelli, rose syrup, and ice cream</p>
+                        <div class="menu-item-footer">
+                            <span class="price">$9.99</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-image" style="background-image: url('../../assets/Images/special4.webp');"></div>
+                    <div class="menu-item-content">
+                        <h3>Chocolate Lava Cake</h3>
+                        <p>Warm chocolate cake with molten center, served with vanilla ice cream</p>
+                        <div class="menu-item-footer">
+                            <span class="price">$11.99</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beverages -->
+        <div class="menu-section" data-category="beverages">
+            <h2>Beverages</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-image" style="background-image: url('../../assets/Images/special3.webp');"></div>
+                    <div class="menu-item-content">
+                        <h3>Fresh Lemonade</h3>
+                        <p>House-made lemonade with fresh mint and lime</p>
+                        <div class="menu-item-footer">
+                            <span class="price">$4.99</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-image" style="background-image: url('../../assets/Images/special3.webp');"></div>
+                    <div class="menu-item-content">
+                        <h3>Iced Coffee</h3>
+                        <p>Cold brew coffee served over ice with your choice of milk</p>
+                        <div class="menu-item-footer">
+                            <span class="price">$3.99</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">0</span>
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Summary -->
+    <section class="order-summary" id="order-form">
+        <h2>Complete Your Order</h2>
+        <form class="order-form" onsubmit="submitOrder(event)">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="delivery">Delivery Method</label>
+                <select id="delivery" name="delivery" required>
+                    <option value="">Select delivery method</option>
+                    <option value="pickup">Pickup</option>
+                    <option value="delivery">Home Delivery</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="address">Address (for delivery)</label>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your full address"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="notes">Special Instructions</label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Any special requests or notes"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Place Order</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="/index.html">Home</a>
+                <a href="#">Menu</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Social Media</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Whatsapp</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact info</h3>
+                <a href="#">Phone</a>
+                <a href="#">Email</a>
+                <a href="#">address</a>
+                <a href="#">Website</a>
+            </div>
+        </div>
+    </footer>
+
+<script src="/Public/js/order.js">
+   
+</script>
+</body>
+</html>
